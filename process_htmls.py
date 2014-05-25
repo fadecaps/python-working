@@ -1,16 +1,16 @@
 #!/usr/bin/python
 
-import math
 import glob as gb
 import os
-import PyV8
+import shutil as shut
+#import PyV8
 
 listin = gb.iglob('./source/*.htm')
 
-def beeline(filein)
+""" def beeline(filein)
     ctxt = PyV8.JSContext()
     ctxt.enter()
-    js = """
+    js = "
     function(){
         readStyle='style-ebook';
         readSize='size-large';
@@ -32,9 +32,9 @@ def beeline(filein)
         _readability_print_css.type='text/css';
         document.getElementsByTagName('head')[0].appendChild(_readability_print_css);
     }();
-    """
+    "
 
-    js2 = """
+    js2 = "
     function(){
         var w=window,u='http://www.beelinereader.com/BlackNavyCrimson',l=w.location,d=w.document,s=d.createElement('script'),e=encodeURIComponent,x='undefined';
         function g(){
@@ -49,11 +49,17 @@ def beeline(filein)
         }
        g();
     }()
-    """
+    "
     ctxt.eval(js)
     ctxt.eval(js2)
+"""
 
-while()
-    filein = os.open(listin.next())
-    fileout = beeline(filein)
-    os.save(fileout)
+while True:
+    #filein = open(listin.next())
+    #fileout = beeline(filein)
+    #save(fileout)
+    try:
+        orig = listin.next();
+        shut.copy2(orig,orig[:-4]+'_2'+orig[-4:])
+    except StopIteration
+        break
