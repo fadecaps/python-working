@@ -7,12 +7,7 @@ import PyV8
 
 listin = gb.iglob('./source/*.htm')
 
-while()
-    filein = os.open(listin.next())
-    fileout = beeline(filein)
-    os.save(fileout)
-
-function beeline(filein)
+def beeline(filein)
     ctxt = PyV8.JSContext()
     ctxt.enter()
     js = """
@@ -58,3 +53,7 @@ function beeline(filein)
     ctxt.eval(js)
     ctxt.eval(js2)
 
+while()
+    filein = os.open(listin.next())
+    fileout = beeline(filein)
+    os.save(fileout)
